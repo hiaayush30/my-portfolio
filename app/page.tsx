@@ -1,21 +1,11 @@
+import BlogCard from '@/components/BlogCard'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
+import prisma from '@/lib/db'
 import { ArrowRight, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 
-function page() {
-  const posts = [{
-    id: 1,
-    slug: "learn-next.js-basics",
-    title: "Learn Next.js Basics",
-    createdAt: new Date(),
-    content: `# Learn Next.js Basics
-    Next.js is a popular React framework that helps you build fast and seo friendly websites
-    ## Why use Next,js?
-    - Build-in-routing system
-    - Server Side Rendering and static generation
-    - great dev experience`
-  }] 
+async function page() {
+  const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" }, take: 3 })
   return (
     <main className='min-h-screen'>
       {/* Hero Section */}
@@ -53,18 +43,9 @@ function page() {
         <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
         {posts.length > 0 ? (
           <>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col">
               {posts.map((post) => (
-                <Card key={post.id} className="hover:bg-accent transition-colors">
-                  <Link href={`/blog/${post.slug}`}>
-                    <CardContent className="p-4">
-                      <h3 className="font-semibold">{post.title}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {new Date(post.createdAt).toLocaleDateString()}
-                      </p>
-                    </CardContent>
-                  </Link>
-                </Card>
+                <BlogCard key={post.id} post={post} />
               ))}
             </div>
             <Button variant="link" asChild className="mt-4 px-0">

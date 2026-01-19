@@ -19,9 +19,6 @@ async function page() {
                     </Link>
                 </Button>
                 <h1 className='text-3xl font-semibold mb-2'>Comments</h1>
-                <p className='text-muted-foreground mb-8'>
-                    Sign in with Github to leave a comment or a message
-                </p>
                 <div className='mb-8'>
                     <AuthButton callbackURL='/comments' />
                 </div>

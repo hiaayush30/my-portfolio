@@ -39,7 +39,7 @@ async function page() {
       </section>
 
       {/* Recent Posts */}
-      <section className="py-16 px-4 max-w-3xl mx-auto">
+      <section className="px-4 max-w-3xl mx-auto">
         <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
         {posts.length > 0 ? (
           <>

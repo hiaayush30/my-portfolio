@@ -9,7 +9,8 @@ function BlogCard({ post }: { post: BlogPost }) {
             <Link href={`/blog/${post.slug}`}>
                 <CardContent className="p-4">
                     <h3 className="font-semibold">{post.title}</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 className="text-muted-foreground my-1 text-sm">{post.catchphrase}</h3>
+                    <p className='text-sm'>
                         {new Date(post.createdAt).toLocaleDateString()}
                     </p>
                 </CardContent>

@@ -22,7 +22,7 @@ async function page({ params }: { params: Promise<{ slug: string }> }) {
                     </Link>
                 </Button>
                 {
-                    <article className='border-2 p-4 rounded-lg'>
+                    <article className='border-2 p-4 rounded-lg bg-background'>
                         <h1 className='text-3xl font-bold mb-2'>
                             {post?.title}
                         </h1>

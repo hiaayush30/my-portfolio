@@ -1,62 +1,70 @@
-import BlogCard from '@/components/BlogCard'
-import { Button } from '@/components/ui/button'
-import prisma from '@/lib/db'
-import { ArrowRight, MessageCircle } from 'lucide-react'
-import Link from 'next/link'
+import Label from '@/components/Label'
+import Typewriter from '@/components/Typewriter'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { FileText, GithubIcon, LinkedinIcon, Mail } from 'lucide-react'
 
 async function page() {
-  const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" }, take: 3 })
+  // const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" }, take: 3 })
   return (
-    <main className='min-h-screen'>
+    <main className='min-h-screen max-w-3xl mx-auto flex flex-col justify-center'>
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-20 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Aayush Jha</h1>
+        <h1 className="text-4xl font-bold mb-4"><Typewriter /> i&apos;m Aayush</h1>
         <p className="text-muted-foreground text-lg max-w-md mb-6">
-          A full-stack developer passionate about building great web
-          experiences.
+          A full-stack developer passionate about designing and building scalabale backends from scratch
         </p>
-        <div className="flex gap-4">
-          <Button asChild>
-            <Link href="/blog">Read Blog</Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link href="/comments">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Contact Me
-            </Link>
-          </Button>
-        </div>
-      </section>
+        {/* Tech Stack */}
+        <section className='flex items-center justify-center gap-3 pb-10'>
+          <Label text='springboot' />
+          <Label text='node.js' />
+          <Label text='next.js' />
+        </section>
+        <section className="flex gap-4">
 
-      {/* About Section */}
-      <section className="py-16 px-4 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4">About Me</h2>
-        <p className="text-muted-foreground">
-          I specialize in React, Next.js, and Express.js. With years of
-          experience building scalable applications, I love turning ideas into
-          reality.
-        </p>
-      </section>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a target='_blank' href="https://github.com/hiaayush30" className='p-1 border-2 rounded-full border-muted-foreground hover:scale-110 transition-all cursor-pointer'>
+                <GithubIcon className='text-muted-foreground' />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side='bottom'>
+              <p>github</p>
+            </TooltipContent>
+          </Tooltip>
 
-      {/* Recent Posts */}
-      <section className="px-4 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
-        {posts.length > 0 ? (
-          <>
-            <div className="flex flex-col">
-              {posts.map((post) => (
-                <BlogCard key={post.id} post={post} />
-              ))}
-            </div>
-            <Button variant="link" asChild className="mt-4 px-0">
-              <Link href="/blog">
-                View all posts <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
-            </Button>
-          </>
-        ) : (
-          <p className="text-muted-foreground">No posts yet.</p>
-        )}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a target='_blank' href='https://drive.google.com/file/d/1H3wdaBGV8zDgqSCYmyl6bToVl8zgIYyJ/view' className='p-1 border-2 rounded-full border-muted-foreground hover:scale-110 transition-all cursor-pointer'>
+                <FileText className='text-muted-foreground' />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side='bottom'>
+              <p>my resume</p>
+            </TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a target='_blank' href='https://www.linkedin.com/in/hiaayush30/' className='p-1 border-2 rounded-full border-muted-foreground hover:scale-110 transition-all cursor-pointer'>
+                <LinkedinIcon className='text-muted-foreground' />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side='bottom'>
+              <p>linkedin</p>
+            </TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a target='_blank' href='mailto:hiaayush30@gmail.com' className='p-1 border-2 rounded-full border-muted-foreground hover:scale-110 transition-all cursor-pointer'>
+                <Mail className='text-muted-foreground' />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side='bottom'>
+              <p>email</p>
+            </TooltipContent>
+          </Tooltip>
+        </section>
       </section>
     </main>
   )

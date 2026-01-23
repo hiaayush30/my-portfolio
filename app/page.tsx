@@ -1,4 +1,4 @@
-import ToolTip from '@/components/ToolTip'
+import Label from '@/components/Label'
 import Typewriter from '@/components/Typewriter'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { FileText, GithubIcon, LinkedinIcon } from 'lucide-react'
@@ -15,9 +15,9 @@ async function page() {
         </p>
         {/* Tech Stack */}
         <section className='flex items-center justify-center gap-3 pb-10'>
-          <ToolTip text='springboot' />
-          <ToolTip text='node.js' />
-          <ToolTip text='next.js' />
+          <Label text='springboot' />
+          <Label text='node.js' />
+          <Label text='next.js' />
         </section>
         <section className="flex gap-4">
 

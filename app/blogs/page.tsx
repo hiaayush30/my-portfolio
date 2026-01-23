@@ -1,8 +1,5 @@
 import BlogCard from '@/components/BlogCard';
-import { Button } from '@/components/ui/button';
 import prisma from '@/lib/db'
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 
 async function page() {
     const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" } });

@@ -4,7 +4,6 @@ import prisma from '@/lib/db';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import React from 'react'
 
 async function page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;

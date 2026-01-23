@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import prisma from '@/lib/db'
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react'
 
 async function page() {
     const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" } });

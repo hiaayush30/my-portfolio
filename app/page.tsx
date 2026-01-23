@@ -1,20 +1,27 @@
-import BlogCard from '@/components/BlogCard'
+import Navbar from '@/components/Navbar'
+import ToolTip from '@/components/ToolTip'
+import Typewriter from '@/components/Typewriter'
 import { Button } from '@/components/ui/button'
-import prisma from '@/lib/db'
-import { ArrowRight, MessageCircle } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 
 async function page() {
-  const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" }, take: 3 })
+  // const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" }, take: 3 })
   return (
-    <main className='min-h-screen'>
+    <main className='min-h-screen max-w-3xl mx-auto flex flex-col justify-center'>
+      <Navbar/>
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-20 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Aayush Jha</h1>
+        <h1 className="text-4xl font-bold mb-4"><Typewriter/> i&apos;m Aayush</h1>
         <p className="text-muted-foreground text-lg max-w-md mb-6">
-          A full-stack developer passionate about building great web
-          experiences.
+          A full-stack developer passionate about designing and building scalabale backends from scratch
         </p>
+        {/* Tech Stack */}
+        <div className='flex items-center justify-center gap-3 pb-10'>
+          <ToolTip text='springboot'/>
+          <ToolTip text='node.js'/>
+          <ToolTip text='next.js'/>
+        </div>
         <div className="flex gap-4">
           <Button asChild>
             <Link href="/blog">Read Blog</Link>
@@ -26,37 +33,6 @@ async function page() {
             </Link>
           </Button>
         </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-16 px-4 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4">About Me</h2>
-        <p className="text-muted-foreground">
-          I specialize in React, Next.js, and Express.js. With years of
-          experience building scalable applications, I love turning ideas into
-          reality.
-        </p>
-      </section>
-
-      {/* Recent Posts */}
-      <section className="px-4 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
-        {posts.length > 0 ? (
-          <>
-            <div className="flex flex-col">
-              {posts.map((post) => (
-                <BlogCard key={post.id} post={post} />
-              ))}
-            </div>
-            <Button variant="link" asChild className="mt-4 px-0">
-              <Link href="/blog">
-                View all posts <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
-            </Button>
-          </>
-        ) : (
-          <p className="text-muted-foreground">No posts yet.</p>
-        )}
       </section>
     </main>
   )

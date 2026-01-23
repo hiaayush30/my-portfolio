@@ -1,7 +1,7 @@
 import Label from '@/components/Label'
 import Typewriter from '@/components/Typewriter'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { FileText, GithubIcon, LinkedinIcon } from 'lucide-react'
+import { FileText, GithubIcon, LinkedinIcon, Mail } from 'lucide-react'
 
 async function page() {
   // const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" }, take: 3 })
@@ -28,18 +28,18 @@ async function page() {
               </a>
             </TooltipTrigger>
             <TooltipContent side='bottom'>
-              <p>Github</p>
+              <p>github</p>
             </TooltipContent>
           </Tooltip>
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <a target='_blank' href='https://www.linkedin.com/in/hiaayush30/' className='p-1 border-2 rounded-full border-muted-foreground hover:scale-110 transition-all cursor-pointer'>
+              <a target='_blank' href='https://drive.google.com/file/d/1H3wdaBGV8zDgqSCYmyl6bToVl8zgIYyJ/view' className='p-1 border-2 rounded-full border-muted-foreground hover:scale-110 transition-all cursor-pointer'>
                 <FileText className='text-muted-foreground' />
               </a>
             </TooltipTrigger>
             <TooltipContent side='bottom'>
-              <p>My Resume</p>
+              <p>my resume</p>
             </TooltipContent>
           </Tooltip>
 
@@ -50,10 +50,20 @@ async function page() {
               </a>
             </TooltipTrigger>
             <TooltipContent side='bottom'>
-              <p>Linkedin</p>
+              <p>linkedin</p>
             </TooltipContent>
           </Tooltip>
 
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a target='_blank' href='mailto:hiaayush30@gmail.com' className='p-1 border-2 rounded-full border-muted-foreground hover:scale-110 transition-all cursor-pointer'>
+                <Mail className='text-muted-foreground' />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side='bottom'>
+              <p>email</p>
+            </TooltipContent>
+          </Tooltip>
         </section>
       </section>
     </main>

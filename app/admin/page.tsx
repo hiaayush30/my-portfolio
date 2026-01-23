@@ -1,4 +1,5 @@
 import AuthButton from "@/components/AuthButton";
+import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
@@ -11,12 +12,12 @@ async function AdminPage() {
         <main className='min-h-screen py-24 px-4'>
             <div className='max-w-3xl mx-auto'>
                 <h1 className="text-3xl font-semibold mb-5">Admin Panel</h1>
-                {!session ? (
+                {!session || session.user.role != "ADMIN" ? (
                     <div>
                         <AuthButton callbackURL="/admin" />
                     </div>
                 ) : (
-                    <div>{JSON.stringify(session.user)}</div>
+                    <Button>Create Blog</Button>
                 )}
 
             </div>

@@ -7,8 +7,6 @@ async function AdminPage() {
     const session = await auth.api.getSession({
         headers: await headers()
     })
-    console.log(session?.user.role);
-    console.log(session?.user);
     return (
         <main className='min-h-screen py-24 px-4'>
             <div className='max-w-3xl mx-auto'>
@@ -18,7 +16,10 @@ async function AdminPage() {
                         <AuthButton callbackURL="/admin" />
                     </div>
                 ) : (
-                    <Button>Create Blog</Button>
+                    <>
+                        {JSON.stringify(session.user)}
+                        <Button>Create Blog</Button>
+                    </>
                 )}
 
             </div>

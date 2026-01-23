@@ -17,7 +17,6 @@ async function AdminPage() {
                     </div>
                 ) : (
                     <>
-                        {JSON.stringify(session.user)}
                         <Button>Create Blog</Button>
                     </>
                 )}

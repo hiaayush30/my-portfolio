@@ -1,7 +1,8 @@
 import AuthButton from "@/components/AuthButton";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
-import { ArrowUpRight } from "lucide-react";
+import { signOut } from "@/lib/auth-client";
+import { ArrowUpRight, LogOut } from "lucide-react";
 import { headers } from "next/headers";
 import Link from "next/link";
 
@@ -19,6 +20,12 @@ async function AdminPage() {
                     </div>
                 ) : (
                     <section>
+                        <Link href={"/admin/blogs"} className="my-4">
+                            <Button onClick={()=>signOut()} className="cursor-pointer">
+                                Logout
+                                <LogOut />
+                            </Button>
+                        </Link>
                         <h3 className="my-4">What do you want to do?</h3>
                         <Link href={"/admin/blogs"}>
                             <Button className="cursor-pointer">

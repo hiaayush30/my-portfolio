@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import BlogCard from '@/components/BlogCard';
 import prisma from '@/lib/db'
 

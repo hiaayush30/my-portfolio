@@ -78,11 +78,10 @@ function CreateBlog() {
                     />
                 </div>
                 <MDEditor
-                    className='my-2'
                     value={content}
                     onChange={setContent}
                 />
-                <MDEditor.Markdown source={content} style={{ whiteSpace: 'pre-wrap' }} />
+                <MDEditor.Markdown className='my-6 p-2' source={content} style={{ whiteSpace: 'pre-wrap' }} />
             </form>
         </main>
     )

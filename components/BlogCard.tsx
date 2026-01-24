@@ -7,7 +7,7 @@ function BlogCard({ post }: { post: BlogPost }) {
     return (
         <div className='relative group hover:scale-101 transition-all'>
             <div className="absolute inset-0 bg-[url('/blogbg.jpg')] bg-cover rounded-xl transition-all duration-10000">
-                <div className="absolute inset-0 bg-black/80 rounded-xl"></div>
+                <div className="absolute inset-0 dark:bg-black/20 rounded-xl"></div>
             </div>
             <Card className="relative bg-transparent my-5 rounded-xl border-none shadow-none">
                 <Link href={`/blogs/${post.slug}`}>

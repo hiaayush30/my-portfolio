@@ -20,12 +20,6 @@ async function AdminPage() {
                     </div>
                 ) : (
                     <section>
-                        <Link href={"/admin/blogs"} className="my-4">
-                            <Button onClick={()=>signOut()} className="cursor-pointer">
-                                Logout
-                                <LogOut />
-                            </Button>
-                        </Link>
                         <h3 className="my-4">What do you want to do?</h3>
                         <Link href={"/admin/blogs"}>
                             <Button className="cursor-pointer">

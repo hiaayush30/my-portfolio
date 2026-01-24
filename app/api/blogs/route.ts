@@ -1,6 +1,8 @@
 import prisma from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
+import { headers } from "next/headers";
 import z from "zod";
+import { auth } from "@/lib/auth";
 
 const postSchema = z.object({
     title: z.string({ error: "title required" }),
@@ -10,6 +12,15 @@ const postSchema = z.object({
 
 export const POST = async (req: NextRequest) => {
     try {
+        const session = await auth.api.getSession({
+            headers: await headers()
+        })
+        if (!session?.user || session?.user.role != "ADMIN") {
+            return NextResponse.json({
+                success: false,
+                error: "not authorized"
+            }, { status: 403 })
+        }
         const body = await req.json();
         const { success, data } = await postSchema.safeParse(body);
         if (!success) {
@@ -52,3 +63,4 @@ export const POST = async (req: NextRequest) => {
         }, { status: 500 });
     }
 }
+

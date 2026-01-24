@@ -1,9 +1,38 @@
-import React from 'react'
+"use client"
 import { Card, CardContent } from './ui/card'
 import Link from 'next/link'
 import { BlogPost } from '@/lib/generated/prisma/client'
+import { Trash } from 'lucide-react';
+import { useSession } from '@/lib/auth-client';
+import { toast } from 'sonner';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 function BlogCard({ post }: { post: BlogPost }) {
+    const { data } = useSession();
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
+    const handleDelete = async (id: string) => {
+        try {
+            if (loading) return;
+            setLoading(true);
+            const res = await fetch("/api/blogs/" + id, {
+                method: "DELETE"
+            })
+            const response = await res.json();
+            if (!res.ok) {
+                toast(response.error)
+            } else {
+                toast(response.message)
+                router.refresh();
+            }
+        } catch (error) {
+            toast("could not delete blog")
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <div className='relative group hover:scale-101 transition-all'>
             <div className="absolute inset-0 bg-[url('/blogbg.jpg')] bg-cover rounded-xl transition-all duration-10000">
@@ -23,6 +52,15 @@ function BlogCard({ post }: { post: BlogPost }) {
                         </p>
                     </CardContent>
                 </Link>
+                {
+                    data?.user.email == "hiaayush30@gmail.com" && (
+                        <div>
+                            <Trash
+                                onClick={() => handleDelete(post.id)}
+                                className='cursor-pointer bg-muted p-1 rounded-full hover:scale-115 transition-all text-red-500 absolute top-1 right-1' />
+                        </div>
+                    )
+                }
             </Card>
         </div>
     )

@@ -14,19 +14,13 @@ async function page({ params }: { params: Promise<{ slug: string }> }) {
     return (
         <main className='min-h-screen py-24 px-4'>
             <div className='max-w-3xl mx-auto'>
-                <Button variant={"ghost"} asChild className='mb-8'>
-                    <Link href={"/blogs"}>
-                        <ArrowLeft />
-                        Back to Blogs
-                    </Link>
-                </Button>
                 {
-                    <article className='border-2 p-4 rounded-lg bg-muted'>
+                    <article>
                         <h1 className='text-3xl font-bold mb-2'>
                             {post?.title}
                         </h1>
                         <p className='text-muted-foreground mb-6'>{new Date(post.createdAt).toLocaleDateString()}</p>
-                        <hr/>
+                        <hr />
                         <div className='prose prose-neutral dark:prose-invert max-w-none my-8'>
                             <MarkdownRenderer content={post.content} />
                         </div>

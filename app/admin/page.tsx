@@ -20,7 +20,7 @@ async function AdminPage() {
                 ) : (
                     <section>
                         <h3 className="my-4">What do you want to do?</h3>
-                        <Link href={"/admin/blogs/create"}>
+                        <Link href={"/admin/blogs"}>
                             <Button className="cursor-pointer">
                                 Create Blog
                                 <ArrowUpRight />

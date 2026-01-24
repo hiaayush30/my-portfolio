@@ -1,9 +1,10 @@
 "use client"
 import { FormEvent, useState } from 'react'
 import MDEditor from '@uiw/react-md-editor';
-import { Trash } from 'lucide-react';
+import { ArrowLeft, Trash } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import Link from 'next/link';
 
 function CreateBlog() {
     const [title, setTitle] = useState("");
@@ -37,6 +38,11 @@ function CreateBlog() {
     }
     return (
         <main className='py-24 max-w-3xl mx-auto w-full'>
+            <Link href={"/admin"}>
+                <Button className='cursor-pointer my-4' variant={"ghost"}>
+                    <ArrowLeft /> Go Back
+                </Button>
+            </Link>
             <form onSubmit={handleSubmit}>
                 <div className='flex items-center justify-between'>
                     <h1 className='text-3xl font-semibold'>Create Blog</h1>
@@ -72,6 +78,7 @@ function CreateBlog() {
                     />
                 </div>
                 <MDEditor
+                    className='my-2'
                     value={content}
                     onChange={setContent}
                 />

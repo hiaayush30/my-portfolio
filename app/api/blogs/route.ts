@@ -30,7 +30,7 @@ export const POST = async (req: NextRequest) => {
             })
         }
         const { content, catchphrase, title } = data;
-        const slug = title.replace(" ", "-");
+        const slug = title.replaceAll(" ", "-").toLowerCase();
         const existing = await prisma.blogPost.findFirst({
             where: {
                 slug

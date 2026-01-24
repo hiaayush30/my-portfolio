@@ -4,7 +4,7 @@ import { ModeToggle } from './ModeToggle'
 
 function Navbar() {
     return (
-        <nav className='text-muted-foreground border-b fixed top-0 p-5 w-full max-w-3xl mx-auto bg-background/95'>
+        <nav className='z-10 text-muted-foreground border-b fixed top-0 p-5 w-full max-w-3xl mx-auto bg-background/95'>
             <div className='flex items-center justify-center gap-5'>
                 <Link href={"/"} className='hover:text-foreground hover:underline underline-offset-6 text-xl'>about</Link>
                 <Link href={"/projects"} className='hover:text-foreground hover:underline underline-offset-6 text-xl'>projects</Link>

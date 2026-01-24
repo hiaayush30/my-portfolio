@@ -1,7 +1,9 @@
 import AuthButton from "@/components/AuthButton";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
+import { ArrowUpRight } from "lucide-react";
 import { headers } from "next/headers";
+import Link from "next/link";
 
 async function AdminPage() {
     const session = await auth.api.getSession({
@@ -16,9 +18,15 @@ async function AdminPage() {
                         <AuthButton callbackURL="/admin" />
                     </div>
                 ) : (
-                    <>
-                        <Button>Create Blog</Button>
-                    </>
+                    <section>
+                        <h3 className="my-4">What do you want to do?</h3>
+                        <Link href={"/admin/blogs/create"}>
+                            <Button className="cursor-pointer">
+                                Create Blog
+                                <ArrowUpRight />
+                            </Button>
+                        </Link>
+                    </section>
                 )}
 
             </div>

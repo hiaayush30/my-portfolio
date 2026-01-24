@@ -18,6 +18,7 @@ async function page() {
           <Label text='springboot' />
           <Label text='node.js' />
           <Label text='next.js' />
+          <Label text='DevOps' />
         </section>
         <div className='border-b-2 w-full max-w-sm mx-auto mb-6'></div>
         <section className="flex gap-4">

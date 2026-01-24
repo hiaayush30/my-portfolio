@@ -40,7 +40,7 @@ export const POST = async (req: NextRequest) => {
             return NextResponse.json({
                 success: false,
                 error: "Title already exists"
-            })
+            }, { status: 401 })
         }
         await prisma.blogPost.create({
             data: {

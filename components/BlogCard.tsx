@@ -5,18 +5,20 @@ import { BlogPost } from '@/lib/generated/prisma/client'
 
 function BlogCard({ post }: { post: BlogPost }) {
     return (
-        <div className='relative hover:scale-101 transition-all'> 
-            <div className="absolute inset-0 bg-[url('/blogbg-light.jpg')] dark:bg-[url('/blogbg.jpg')] bg-cover rounded-xl transition-all duration-10000">
-                <div className="absolute inset-0 bg-black/40 rounded-xl"></div>
+        <div className='relative group hover:scale-101 transition-all'>
+            <div className="absolute inset-0 bg-[url('/blogbg.jpg')] bg-cover rounded-xl transition-all duration-10000">
+                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 rounded-xl"></div>
             </div>
             <Card className="relative bg-transparent my-5 rounded-xl border-none shadow-none">
                 <Link href={`/blogs/${post.slug}`}>
                     <CardContent className="p-4">
-                        <h3 className="font-semibold text-slate-200 transition-colors text-xl">
+                        <h3 className="font-semibold text-white transition-colors text-xl style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}">
                             {post.title}
                         </h3>
-                        <h3 className="my-1 text-sm text-slate-300">{post.catchphrase}</h3>
-                        <p className='text-sm text-gray-400'>
+                        <h3 className="my-1 text-sm text-zinc-50 style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}">
+                            {post.catchphrase}
+                        </h3>
+                        <p className="text-sm text-zinc-200 style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}">
                             {new Date(post.createdAt).toLocaleDateString()}
                         </p>
                     </CardContent>

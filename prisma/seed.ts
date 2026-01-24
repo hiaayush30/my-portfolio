@@ -1,6 +1,5 @@
 import prisma from "@/lib/db";
 
-const seed = async () => {
   const blogPosts = [{
     slug: "learn-react",
     title: "Learn React basics",
@@ -30,6 +29,8 @@ If you are typing this into a text area or a CMS to save it to your database, al
 
 Would you like me to show you a **RegEx** helper to automatically clean up and "fix" spacing in raw strings before you pass them to the renderer? `
   }]
+
+const seed = async () => {
   for (const post of blogPosts) {
     await prisma.blogPost.create({
       data: post

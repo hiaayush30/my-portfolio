@@ -11,16 +11,16 @@ async function page() {
       <section className="flex flex-col items-center justify-center py-20 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4"><Typewriter /> i&apos;m Aayush</h1>
         <p className="text-muted-foreground text-lg max-w-md mb-6">
-          A full-stack developer passionate about designing and building scalabale backends from scratch
+          A full-stack developer passionate about designing and building scalable backends from scratch
         </p>
         {/* Tech Stack */}
-        <section className='flex items-center justify-center gap-3 pb-10'>
+        <section className='flex items-center justify-center gap-3 pb-6'>
           <Label text='springboot' />
           <Label text='node.js' />
           <Label text='next.js' />
         </section>
+        <div className='border-b-2 w-full max-w-sm mx-auto mb-6'></div>
         <section className="flex gap-4">
-
           <Tooltip>
             <TooltipTrigger asChild>
               <a target='_blank' href="https://github.com/hiaayush30" className='p-1 border-2 rounded-full border-muted-foreground hover:scale-110 transition-all cursor-pointer'>

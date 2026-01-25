@@ -82,7 +82,7 @@ function CreateBlog() {
                     onChange={setContent}
                     className='mx-1'
                 />
-                <MDEditor.Markdown className='my-6 mx-1 rounded-lg p-2' source={content} style={{ whiteSpace: 'pre-wrap' }} />
+                <MDEditor.Markdown className='my-6 mx-1 rounded-lg p-2' source={content} style={{ whiteSpace: 'normal' }} />
             </form>
         </main>
     )

@@ -1,10 +1,10 @@
-import { GithubIcon, Link, Link2Icon } from 'lucide-react'
+import { GithubIcon, Link } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 import { Project } from '@/lib/generated/prisma/client'
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className='group/card flex flex-col h-full border-2 border-stone-500 rounded-xl overflow-hidden bg-white dark:bg-[#05070a] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-black/10'>
+    <div className='group/card flex flex-col h-full border-2 border-stone-400 rounded-xl overflow-hidden bg-white dark:bg-[#05070a] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-black/10'>
       
       <div className='relative aspect-video w-full overflow-hidden'>
         <div className='absolute inset-0 bg-[url("/blogbg1.jpg")] bg-center bg-cover transition-transform duration-500 group-hover/card:scale-110' />

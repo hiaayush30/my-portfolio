@@ -12,6 +12,7 @@ function BlogCard({ post }: { post: BlogPost }) {
     const { data } = useSession();
     const [loading, setLoading] = useState(false);
     const router = useRouter();
+
     const handleDelete = async (id: string) => {
         try {
             if (loading) return;
@@ -34,34 +35,39 @@ function BlogCard({ post }: { post: BlogPost }) {
     }
 
     return (
-        <div className='relative group hover:scale-101 transition-all'>
-            <div className="absolute inset-0 bg-[url('/blogbg.jpg')] bg-cover rounded-xl transition-all duration-10000">
-                <div className="absolute inset-0 dark:bg-black/20 rounded-xl"></div>
-            </div>
-            <Card className="relative bg-transparent my-5 py-2 rounded-xl border-none shadow-none">
+        <div className='relative group hover:scale-[1.01] transition-all border-2 dark:border-stone-700 hover:dark:border-stone-300 border-stone-300 hover:border-stone-600 rounded-xl overflow-hidden my-5'>
+            <Card className="relative group bg-transparent py-2 border-none shadow-none">
                 <Link href={`/blogs/${post.slug}`}>
                     <CardContent className="p-4">
-                        <h3 className="font-semibold text-white transition-colors text-2xl style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}">
+                        <h3 
+                            className="font-semibold dark:text-white transition-colors text-2xl"
+                        >
                             {post.title}
                         </h3>
-                        <h3 className="my-1 text-lg text-zinc-50 style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}">
+                        <h3 
+                            className="my-1 text-md dark:text-zinc-50"
+                        >
                             {post.catchphrase}
                         </h3>
-                        <p className="text-sm text-gray-300 style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}">
+                        <p 
+                            className="text-sm dark:text-gray-300"
+                        >
                             {new Date(post.createdAt).toLocaleDateString()}
                         </p>
+                        <div className='bg-[url("/blogbg1.jpg")] transition-all bg-center bg-cover absolute right-0 max-md:hidden md:w-[30%] inset-y-0'></div>
                     </CardContent>
                 </Link>
-                {
-                    data?.user.email == "hiaayush30@gmail.com" && (
-
-                        <Trash
-                            onClick={() => handleDelete(post.id)}
-                            className='cursor-pointer bg-muted p-1 rounded-full hover:scale-115 transition-all text-red-500 absolute top-1 right-1' />
-                    )
-                }
+                
+                {data?.user.email === "hiaayush30@gmail.com" && (
+                    <Trash
+                        onClick={() => handleDelete(post.id)}
+                        className='cursor-pointer bg-slate-800/50 p-1.5 rounded-full hover:scale-110 transition-all text-red-400 absolute top-4 right-4' 
+                        size={28}
+                    />
+                )}
             </Card>
         </div>
     )
 }
-export default BlogCard
+
+export default BlogCard;

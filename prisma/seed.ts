@@ -1,11 +1,11 @@
 import prisma from "@/lib/db";
 
-  const blogPosts = [{
-    slug: "learn-react",
-    title: "Learn React basics",
-    catchphrase: "Learn what is React and how to use it",
-    createdAt: new Date(),
-    content: `# Main title
+const blogPosts = [{
+  slug: "learn-react",
+  title: "Learn React basics",
+  catchphrase: "Learn what is React and how to use it",
+  createdAt: new Date(),
+  content: `# Main title
 ### Sub title
 
 - a list
@@ -28,7 +28,7 @@ Your MarkdownRenderer component is actually written very well. Here is why the i
 If you are typing this into a text area or a CMS to save it to your database, always **double-enter** between different sections. This ensures the string stored in the database has the \n\n characters that react - markdown needs to identify different nodes.
 
 Would you like me to show you a **RegEx** helper to automatically clean up and "fix" spacing in raw strings before you pass them to the renderer? `
-  }]
+}]
 
 const seed = async () => {
   for (const post of blogPosts) {
@@ -46,3 +46,5 @@ seed()
   .finally(async () => {
     await prisma.$disconnect()
   })
+
+  

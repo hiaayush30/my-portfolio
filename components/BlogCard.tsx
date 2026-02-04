@@ -54,7 +54,7 @@ function BlogCard({ post }: { post: BlogPost }) {
                         >
                             {new Date(post.createdAt).toLocaleDateString()}
                         </p>
-                        <div className='bg-[url("/blogbg1.jpg")] transition-all bg-center bg-cover absolute right-0 max-md:hidden md:w-[30%] inset-y-0'></div>
+                        <div className='bg-[url("/blogbg.png")] transition-all bg-center bg-cover absolute right-0 max-md:hidden md:w-[30%] inset-y-0'></div>
                     </CardContent>
                 </Link>
                 

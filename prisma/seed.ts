@@ -42,14 +42,16 @@ const projects = [
     id: "132",
     title: "C compiler",
     "description": "A compiler for C made in JS",
-    github: "https://github.com/hiaayush30/ecommerce-microservices"
+    github: "https://github.com/hiaayush30/ecommerce-microservices",
+    techstack:["python"]
   },
   {
     id: "12i49j",
     title: "Ping server",
     "description": "A ping server in C",
     github: "https://github.com/hiaayush30/ecommerce-microservices",
-    live:"https://hiaayush30-portfolio.vercel.app"
+    live:"https://hiaayush30-portfolio.vercel.app",
+    techstack:["c","java","js"]
   },
 ]
 
